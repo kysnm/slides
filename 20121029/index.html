@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    
+    <link type="text/css" rel="stylesheet" href="./css/base.css" />
+    
+    <link type="text/css" rel="stylesheet" href="./css/color-black.css" />
+    
+    <link type="text/css" rel="stylesheet" href="./css/transition-crossfade.css" />
+    
+    
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    
+    <script type="text/javascript" src="./js/slides.js"></script>
+    
+    <title>Slides converted by Mdslide</title>
+  </head>
+  <body>
+    <div id="slides">
+      <div class="slide">
+  <h1 id="javascript-mvc-framework-angularjs">Javascript MVC framework AngularJS</h1>
+
+<p>Kiyoshi Nomo<br />
+at in-house workshop 2012/10/29</p>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="what-is-angularjs">What is AngularJS</h2>
+
+<ul>
+  <li>AngularJS by Google</li>
+  <li>Backbone.js</li>
+  <li>Ember.js</li>
+  <li>spine.js</li>
+  <li>and more…</li>
+</ul>
+
+<p><a href="http://codebrief.com/2012/01/the-top-10-javascript-mvc-frameworks-reviewed/">http://codebrief.com/2012/01/the-top-10-javascript-mvc-frameworks-reviewed/</a></p>
+
+
+</div>
+<div class="slide">
+  
+<blockquote>
+  <p><strong>Is AngularJS a library, framework, plugin or a browser extension?</strong></p>
+</blockquote>
+
+<blockquote>
+  <p>AngularJS fits the definition of a framework the best, even though it’s much more lightweight than a typical framework and that’s why many confuse it with a library.</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<blockquote>
+  <p>AngularJS is 100% JavaScript, 100% client side and compatible with both desktop and mobile browsers. So it’s definitely not a plugin or some other native browser extension.</p>
+</blockquote>
+
+<p><a href="http://docs.angularjs.org/misc/faq">http://docs.angularjs.org/misc/faq</a>	</p>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="why-angularjs">Why AngularJS</h2>
+
+<blockquote>
+  <p><strong>Why is this project called “AngularJS”? Why is the namespace called “ng”?</strong></p>
+</blockquote>
+
+<blockquote>
+  <p>Because HTML has Angular brackets and “ng” sounds like “Angular”.</p>
+</blockquote>
+
+<p><a href="http://docs.angularjs.org/misc/faq">http://docs.angularjs.org/misc/faq</a>	</p>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="internet-explorer-">Internet Explorer ?</h2>
+
+<blockquote>
+  <p>This document describes the Internet Explorer (IE) idiosyncrasies when dealing with custom HTML attributes and tags. Read this document if you are planning on deploying your angular application on IE v8.0 or earlier.</p>
+</blockquote>
+
+<p><a href="http://docs.angularjs.org/guide/ie">http://docs.angularjs.org/guide/ie</a></p>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="tutorial">tutorial</h2>
+
+<h3 id="you-will-need-nodejs-and-testacular">You will need Node.js and Testacular</h3>
+
+<h3 id="you-can-follow-this-tutorial-and-hack-on-the-code-in-either-the-maclinux-or-the-windows-environment">You can follow this tutorial and hack on the code in either the Mac/Linux or the Windows environment.</h3>
+
+
+</div>
+<div class="slide">
+  
+<ul>
+  <li>Node.js v0.8 or better </li>
+  <li>npm install -g testacular</li>
+  <li>git clone git://github.com/angular/angular-phonecat.git</li>
+  <li>cd angular-phonecat</li>
+  <li>./scripts/web-server.js</li>
+</ul>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="git-checkout--f-step-0">git checkout -f step-0</h2>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="ng-app-directive">ng-app directive</h2>
+
+<blockquote>
+  <p>The ng-app attribute is represents an Angular directive (named ngApp; Angular uses name-with-dashes for attribute names and camelCase for the corresponding directive name)</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="double-curly-binding-with-an-expression">Double-curly binding with an expression</h2>
+
+<p><a href="http://docs.angularjs.org/guide/expression">Angular expression</a></p>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="git-checkout--f-step-1">git checkout -f step-1</h2>
+
+<p><a href="https://github.com/angular/angular-phonecat/compare/step-0...step-1">https://github.com/angular/angular-phonecat/compare/step-0…step-1</a></p>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="git-checkout--f-step-2">git checkout -f step-2</h2>
+
+<p><a href="https://github.com/angular/angular-phonecat/compare/step-1...step-2">https://github.com/angular/angular-phonecat/compare/step-1…step-2</a></p>
+
+<ul>
+  <li>The ng-repeat=”phone in phones” statement in the &lt;li&gt; tag is an Angular repeater.</li>
+</ul>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="phonelistctrl-controller">PhoneListCtrl controller</h2>
+
+<iframe width="677px" height="423px" src="http://docs.angularjs.org/img/tutorial/tutorial_02.png" frameborder="0"></iframe>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="model-and-controller">Model and Controller</h2>
+
+<blockquote>
+  <p>The data model (a simple array of phones in object literal notation) is instantiated within the PhoneListCtrl controller.</p>
+</blockquote>
+
+<blockquote>
+  <p>This controller scope is available to all bindings located within the &lt;body ng-controller="PhoneListCtrl"&gt; tag.</p>
+</blockquote>
+
+<p><a href="http://docs.angularjs.org/api/ng.$rootScope.Scope">angular scope documentation</a></p>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="tests">Tests</h2>
+
+<blockquote>
+  <p>The “Angular way” makes it easy to test code as it is being developed.</p>
+</blockquote>
+
+<blockquote>
+  <p>Angular developers prefer the syntax of <a href="http://pivotal.github.com/jasmine/">Jasmine</a>’s Behavior-driven Development (BDD) framework when writing tests.</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="scriptstestsh">./scripts/test.sh</h2>
+
+<p><a href="https://github.com/angular/angular-phonecat/blob/master/scripts/test.sh">test.sh</a></p>
+
+<p><a href="https://github.com/angular/angular-phonecat/blob/master/config/testacular.conf.js">testacular.conf.js</a></p>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="scriptstestsh">./scripts/test.sh</h2>
+
+<ul>
+  <li>–browsers Chrome,ChromeCanary,Firefox,Opera,<br />
+Safari,PhantomJS,IE</li>
+</ul>
+
+<p><a href="https://github.com/vojtajina/testacular/blob/master/test/client/testacular.conf.js">https://github.com/vojtajina/testacular/blob/master/test/client/testacular.conf.js</a></p>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="testacular">Testacular</h2>
+
+<blockquote>
+  <p><strong>Why am I doing this?</strong></p>
+</blockquote>
+
+<blockquote>
+  <p>Throughout the development of AngularJS, we’ve been using JSTD for testing. I really think that JSTD is a great idea. Unfortunately, we had many problems with JSTD, so we decided to write our own test runner based on the same idea. We wanted a simple tool just for executing JavaScript tests that is both stable and fast. That’s why we use the awesome Socket.io library and Node.js.</p>
+</blockquote>
+
+<p><a href="https://github.com/vojtajina/testacular">https://github.com/vojtajina/testacular</a>
+<br />
+<br />
+* JSTD: <a href="http://code.google.com/p/js-test-driver/">js-test-driver</a></p>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="git-checkout--f-step-3">git checkout -f step-3</h2>
+
+<p><a href="https://github.com/angular/angular-phonecat/compare/step-2...step-3">https://github.com/angular/angular-phonecat/compare/step-2…step-3</a></p>
+
+<blockquote>
+  <p>we will add full text search (yes, it will be simple!). </p>
+</blockquote>
+
+<blockquote>
+  <p>We will also write an end-to-end test</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="filter">filter</h2>
+
+<iframe width="677px" height="423px" src="http://docs.angularjs.org/img/tutorial/tutorial_03.png" frameborder="0"></iframe>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="end-to-end-test">end-to-end test</h2>
+
+<p><a href="http://docs.angularjs.org/guide/dev_guide.e2e-testing">Angular’s end-to-end test runner</a></p>
+
+
+</div>
+<div class="slide">
+  
+<p><a href="https://github.com/angular/angular-phonecat/blob/master/scripts/e2e-test.sh">./scripts/e2e-test.sh</a></p>
+
+<p><a href="https://github.com/angular/angular-phonecat/blob/master/config/testacular-e2e.conf.js">testacular-e2e.conf.js</a></p>
+
+
+</div>
+<div class="slide">
+  
+<p><a href="http://localhost:8000/test/e2e/runner.html">http://localhost:8000/test/e2e/runner.html</a></p>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="git-checkout--f-step-4">git checkout -f step-4</h2>
+
+<p><a href="https://github.com/angular/angular-phonecat/compare/step-3...step-4">https://github.com/angular/angular-phonecat/compare/step-3…step-4</a></p>
+
+<blockquote>
+  <p>let your users control the order of the items in the phone list. 
+The dynamic ordering is implemented by creating a new model property</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="orderby-filter">orderBy filter</h2>
+
+<iframe width="677px" height="423px" src="http://docs.angularjs.org/img/tutorial/tutorial_04.png" frameborder="0"></iframe>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="test">Test</h2>
+
+<p>./scripts/test.sh</p>
+
+
+</div>
+<div class="slide">
+  
+<p><a href="http://angular.github.com/angular-phonecat/step-4/test/e2e/runner.html">http://angular.github.com/angular-phonecat/step-4/test/e2e/runner.html</a></p>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="git-checkout--f-step-5">git checkout -f step-5</h2>
+
+<p><a href="https://github.com/angular/angular-phonecat/compare/step-4...step-5">https://github.com/angular/angular-phonecat/compare/step-4…step-5</a></p>
+
+<blockquote>
+  <p>fetch a larger dataset from our server using one of angular’s built-in <a href="http://docs.angularjs.org/api/ng">services</a> called <a href="http://docs.angularjs.org/api/ng.$http">$http</a></p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="dependency-injector">dependency injector</h2>
+
+<iframe width="677px" height="423px" src="http://docs.angularjs.org/img/tutorial/xhr_service_final.png" frameborder="0"></iframe>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="prefix-naming-convention">’$’ Prefix Naming Convention</h2>
+
+<blockquote>
+  <p>As a naming convention, angular’s built-in services, Scope methods and a few other angular APIs have a ‘$’ prefix in front of the name.</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<blockquote>
+  <p>Don’t use a ‘$’ prefix when naming your services and models, in order to avoid any possible naming collisions.</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="a-note-on-minification">A Note on Minification</h2>
+
+<p><code>
+PhoneListCtrl.$inject = ['$scope', '$http'];
+</code></p>
+
+
+</div>
+<div class="slide">
+  
+<p><code>
+var PhoneListCtrl = ['$scope', '$http', function($scope, $http) { /* constructor body */ }];
+</code></p>
+
+
+</div>
+<div class="slide">
+  
+<blockquote>
+  <p>Both of these methods work with any function that can be injected by Angular, so it’s up to your project’s style guide to decide which one you use.</p>
+</blockquote>
+
+</div>
+
+    </div>
+  <div id="toolbox">
+    <div class="forSlides">
+      <a href="#" class="prev">&lt;&lt;</a>
+      <a href="#outline">View Outline</a>
+      <a href="#" class="next">&gt;&gt;</a>
+    </div>
+    <div class="forOutline">
+      <a href="#" class="toSlide">View Slide</a>
+    </div>
+  </body>
+</html>
