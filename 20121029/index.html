@@ -381,6 +381,490 @@ var PhoneListCtrl = ['$scope', '$http', function($scope, $http) { /* constructor
   <p>Both of these methods work with any function that can be injected by Angular, so it’s up to your project’s style guide to decide which one you use.</p>
 </blockquote>
 
+
+</div>
+<div class="slide">
+  
+<h2 id="test">Test</h2>
+
+<blockquote>
+  <p>Note: Because we loaded Jasmine and angular-mocks.js in our test environment, we got two helper methods <a href="http://docs.angularjs.org/api/angular.mock.module">module</a> and <a href="http://docs.angularjs.org/api/angular.mock.inject">inject</a> that we’ll use to access and configure the injector. </p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<blockquote>
+  <p>We used the inject helper method to inject instances of <a href="http://docs.angularjs.org/api/ng.$rootScope">$rootScope</a>, <a href="http://docs.angularjs.org/api/ng.$controller">$controller</a> and <a href="http://docs.angularjs.org/api/ng.$httpBackend">$httpBackend</a> services into the Jasmine’s beforeEach function.</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<blockquote>
+  <p>We created a new scope for our controller by calling $rootScope.$new()</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<blockquote>
+  <p>We called the injected $controller function passing the PhoneListCtrl function and the created scope as parameters.</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<blockquote>
+  <p>Request $httpBackend service to be injected into our beforeEach function. This is a mock version of the service that in a production environment facilitates all XHR and JSONP requests. The mock version of this service allows you to write tests without having to deal with native APIs and the global state associated with them — both of which make testing a nightmare.</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<blockquote>
+  <p>Use the $httpBackend.expectGET method to train the $httpBackend service to expect an incoming HTTP request and tell it what to respond with. Note that the responses are not returned until we call the $httpBackend.flush method.</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="git-checkout--f-step-6">git checkout -f step-6</h2>
+
+<p><a href="https://github.com/angular/angular-phonecat/compare/step-5...step-6">https://github.com/angular/angular-phonecat/compare/step-5…step-6</a></p>
+
+<blockquote>
+  <p>you will add thumbnail images for the phones in the phone list, and links that, for now, will go nowhere.</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="test">Test</h2>
+
+<blockquote>
+  <p>We added a new end-to-end test to verify that the app is generating correct links to the phone views that we will implement in the upcoming steps.</p>
+</blockquote>
+
+<p>test/e2e/scenarios.js</p>
+
+<p><a href="http://angular.github.com/angular-phonecat/step-6/test/e2e/runner.html">http://angular.github.com/angular-phonecat/step-6/test/e2e/runner.html</a></p>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="git-checkout--f-step-7">git checkout -f step-7</h2>
+
+<p><a href="https://github.com/angular/angular-phonecat/compare/step-6...step-7">https://github.com/angular/angular-phonecat/compare/step-6…step-7</a></p>
+
+<blockquote>
+  <p>you will learn how to create a layout template and how to build an app that has multiple views by adding routing.</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="multiple-views-routing-and-layout-template">Multiple Views, Routing and Layout Template</h2>
+
+<blockquote>
+  <p>Application routes in Angular are declared via the <a href="http://docs.angularjs.org/api/ng.$routeProvider">$routeProvider</a>, which is the provider of the <a href="http://docs.angularjs.org/api/ng.$route">$route service</a>. This service makes it easy to wire together controllers, view templates, and the current URL location in the browser.</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="the-app-module">The App Module</h2>
+
+<blockquote>
+  <p>We call this module phonecatApp and using the config API we request the $routeProvider to be injected into our config function and use $routeProvider.when API to define our routes.</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<blockquote>
+  <p>Note the use of the :phoneId parameter in the second route declaration. The $route service uses the route declaration — ‘/phones/:phoneId’ — as a template that is matched against the current URL. All variables defined with the : notation are extracted into the <a href="http://docs.angularjs.org/api/ng.$routeParams">$routeParams</a> object.</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<p>In order for our application to bootstrap with our newly created module we’ll also need to specify the module name as the value of the <a href="http://docs.angularjs.org/api/ng.directive:ngApp">ngApp</a> directive:</p>
+
+<pre>&lt;html lang="en" ng-app="phonecat"&gt;&lt;/pre&gt;</pre>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="controllers">Controllers</h2>
+
+<pre>
+function PhoneDetailCtrl($scope, $routeParams) {  
+  $scope.phoneId = $routeParams.phoneId;  
+}
+</pre>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="template">Template</h2>
+
+<blockquote>
+  <p>The $route service is usually used in conjunction with the <a href="http://docs.angularjs.org/api/ng.directive:ngView">ngView</a> directive. The role of the ngView directive is to include the view template for the current route into the layout template, which makes it a perfect fit for our index.html template.</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="apppartialsphone-listhtml">app/partials/phone-list.html</h2>
+
+<blockquote>
+  <p>The code that we removed was placed into the phone-list.html template</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="apppartialsphone-detailhtml">app/partials/phone-detail.html</h2>
+
+<blockquote>
+  <p>Note how we are using phoneId model defined in the PhoneDetailCtrl controller.</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="test">Test</h2>
+
+<blockquote>
+  <p>navigate to various URLs and verify that the correct view was rendered.</p>
+</blockquote>
+
+<p>test/e2e/scenarios.js</p>
+
+<p><a href="http://angular.github.com/angular-phonecat/step-7/test/e2e/runner.html">http://angular.github.com/angular-phonecat/step-7/test/e2e/runner.html</a></p>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="git-checkout--f-step-8">git checkout -f step-8</h2>
+
+<p><a href="https://github.com/angular/angular-phonecat/compare/step-7...step-8">https://github.com/angular/angular-phonecat/compare/step-7…step-8</a></p>
+
+<blockquote>
+  <p>implement the phone details view, which is displayed when a user clicks on a phone in the phone list.</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="data">Data</h2>
+
+<blockquote>
+  <p>In addition to phones.json, the app/phones/ directory also contains one json file for each phone</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="controller">Controller</h2>
+
+<blockquote>
+  <p>To construct the URL for the HTTP request, we use $routeParams.phoneId extracted from the current route by the $route service.</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="template">Template</h2>
+
+<blockquote>
+  <p>The TBD placeholder line has been replaced with lists and bindings that comprise the phone details</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="test">Test</h2>
+
+<p>test/unit/controllersSpec.js</p>
+
+<p>./scripts/test.sh</p>
+
+
+</div>
+<div class="slide">
+  
+<p>test/e2e/scenarios.js</p>
+
+<p><a href="http://angular.github.com/angular-phonecat/step-8/test/e2e/runner.html">http://angular.github.com/angular-phonecat/step-8/test/e2e/runner.html</a></p>
+
+
+</div>
+<div class="slide">
+  
+<p><a href="http://docs.angularjs.org/guide/dev_guide.e2e-testing">Angular’s end-to-end test runner API</a></p>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="git-checkout--f-step-9">git checkout -f step-9</h2>
+
+<p><a href="https://github.com/angular/angular-phonecat/compare/step-8...step-9">https://github.com/angular/angular-phonecat/compare/step-8…step-9</a></p>
+
+<blockquote>
+  <p>how to create your own custom display filter.</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="custom-filter">Custom Filter</h2>
+
+<p>you are going to create a phonecatFilters module and register your custom filter with this module:</p>
+
+<p>app/js/filters.js</p>
+
+
+</div>
+<div class="slide">
+  
+<p>app/js/app.js</p>
+
+<p><code>
+angular.module('phonecat', ['phonecatFilters']).
+</code></p>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="template">Template</h2>
+
+<blockquote>
+  <p>we need to include this file in our layout template.</p>
+</blockquote>
+
+<p>app/index.html</p>
+
+
+</div>
+<div class="slide">
+  
+<blockquote>
+  <p>The syntax for using filters in Angular templates is as follows:</p>
+</blockquote>
+
+<p><code>
+{{ expression | filter }}
+</code></p>
+
+<p>app/partials/phone-detail.html</p>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="test">Test</h2>
+
+<p>test/unit/filtersSpec.js</p>
+
+<p>./scripts/test.sh</p>
+
+
+</div>
+<div class="slide">
+  
+<p><a href="http://docs.angularjs.org/api/ng.$filter">built-in Angular filters</a></p>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="git-checkout--f-step-10">git checkout -f step-10</h2>
+
+<p><a href="https://github.com/angular/angular-phonecat/compare/step-9...step-10">https://github.com/angular/angular-phonecat/compare/step-9…step-10</a></p>
+
+<blockquote>
+  <p>add a clickable phone image swapper to the phone details page.</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="controller">Controller</h2>
+
+<p>app/js/controllers.js</p>
+
+<blockquote>
+  <p>created the mainImageUrl model property and set its default value to the first phone image URL.</p>
+</blockquote>
+
+<blockquote>
+  <p>created a setImage event handler function that will change the value of mainImageUrl.</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="template">Template</h2>
+
+<p>app/partials/phone-detail.html</p>
+
+<blockquote>
+  <p>bound the ngSrc directive of the large image to the mainImageUrl property</p>
+</blockquote>
+
+<blockquote>
+  <p>registered an <a href="http://docs.angularjs.org/api/ng.directive:ngClick">ngClick</a> handler with thumbnail images.</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="test">Test</h2>
+
+<p>test/e2e/scenarios.js</p>
+
+<blockquote>
+  <p>One verifies that the main image is set to the first phone image by default. </p>
+</blockquote>
+
+<blockquote>
+  <p>The second test clicks on several thumbnail images and verifies that the main image changed appropriately.</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<p><a href="http://angular.github.com/angular-phonecat/step-8/test/e2e/runner.html">http://angular.github.com/angular-phonecat/step-8/test/e2e/runner.html</a></p>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="git-checkout--f-step-11">git checkout -f step-11</h2>
+
+<p><a href="https://github.com/angular/angular-phonecat/compare/step-10...step-11">https://github.com/angular/angular-phonecat/compare/step-10…step-11</a></p>
+
+<blockquote>
+  <p>improve the way our app fetches data.</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="template">Template</h2>
+
+<blockquote>
+  <p>The custom service is defined in app/js/services.js so we need to include this file in our layout template. </p>
+</blockquote>
+
+<blockquote>
+  <p>Additionally, we also need to load the angular-resource.js file, which contains the ngResource module and in it the $resource service, that we’ll soon use.</p>
+</blockquote>
+
+<p>app/index.html</p>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="service">Service</h2>
+
+<p>app/js/services.js.</p>
+
+<blockquote>
+  <p>the module API to register a custom service using a factory function.</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<p>The <a href="http://docs.angularjs.org/api/ngResource.$resource">$resource</a> service makes it easy to create a <a href="http://en.wikipedia.org/wiki/Representational_State_Transfer">RESTful</a> client with just a few lines of code. This client can then be used in our application, instead of the lower-level <a href="http://docs.angularjs.org/api/ng.$http">$http</a> service.</p>
+
+
+</div>
+<div class="slide">
+  
+<p>app/js/app.js</p>
+
+<blockquote>
+  <p>We need to add ‘phonecatServices’ to ‘phonecat’ application’s requires array.</p>
+</blockquote>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="controller">Controller</h2>
+
+<blockquote>
+  <p>We simplified our sub-controllers (PhoneListCtrl and PhoneDetailCtrl) by factoring out the lower-level <a href="http://docs.angularjs.org/api/ng.$http">$http</a> service, replacing it with a new service called Phone.</p>
+</blockquote>
+
+<p>app/js/controllers.js</p>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="test">Test</h2>
+
+<blockquote>
+  <p>The <a href="http://docs.angularjs.org/api/ngResource.$resource">$resource</a> service augments the response object with methods for updating and deleting the resource. If we were to use the standard toEqual matcher, our tests would fail because the test values would not match the responses exactly. To solve the problem, we use a newly-defined toEqualData <a href="http://pivotal.github.com/jasmine/jsdoc/symbols/jasmine.Matchers.html">Jasmine matcher</a>.</p>
+</blockquote>
+
+<p>test/unit/controllersSpec.js</p>
+
+<p>./scripts/test.sh</p>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="reference">Reference</h2>
+
+<p><a href="http://docs.angularjs.org/guide/index">Developer Guide</a></p>
+
+<p><a href="http://docs.angularjs.org/cookbook/index">Cookbook</a></p>
+
+
+</div>
+<div class="slide">
+  
+<h2 id="thank-you">Thank you!</h2>
+
 </div>
 
     </div>
