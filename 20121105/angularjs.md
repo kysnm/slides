@@ -73,7 +73,7 @@ Reference
 Other Resouces 
 ----------
 
-### 他 JavaScript Framework との比較
+* 他 JavaScript Framework との比較
 
 [The Top 10 Javascript MVC Frameworks Reviewed](http://codebrief.com/2012/01/the-top-10-javascript-mvc-frameworks-reviewed/)	
 
@@ -81,17 +81,17 @@ Other Resouces
 
 [ember.js](http://emberjs.com/)
 
-### Jasmine standalone 実行
+* Jasmine standalone 実行
 
 [A simple project](https://github.com/pivotal/jasmine/wiki/A-simple-project)
 
 [Jasmineでテスティング](http://tech.feedforce.jp/jasmine.html)
 
-### Testacular
+* Testacular
 
 [Testacularで行こう](http://node.ws/translate/2012/11/03/testacular/)
 
-### Testacular に似たテストフレームワーク
+* Testacular に似たテストフレームワーク
 
 [Testem: Interactive JS Test Runner](http://tobyho.com/2012/06/24/testem-interactive-js-test-runner/)
 
