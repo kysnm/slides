@@ -69,6 +69,10 @@ Reference
 
 [Cookbook](http://docs.angularjs.org/cookbook/index)
 
+
+Other Resouces 
+----------
+
 ### 他 JavaScript Framework との比較
 
 [The Top 10 Javascript MVC Frameworks Reviewed](http://codebrief.com/2012/01/the-top-10-javascript-mvc-frameworks-reviewed/)	
